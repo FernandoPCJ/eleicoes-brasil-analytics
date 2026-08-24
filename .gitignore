@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Ambiente virtual
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Dados grandes
+data/raw/*
+data/processed/*
+
+# Power BI
+*.pbix
