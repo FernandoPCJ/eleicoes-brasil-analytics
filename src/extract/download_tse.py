@@ -1,20 +1,37 @@
-from pathlib import Path
 import requests
+from pathlib import Path
+
+from src.extract.config_tse import RAW_DATA_DIR
 
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+URL_CANDIDATOS = (
+    "https://dadosabertos.tse.jus.br/"
+)
 
-RAW_DATA = BASE_DIR / "data" / "raw"
 
+def download_arquivo(url, destino):
 
-def criar_pasta_raw():
-    RAW_DATA.mkdir(parents=True, exist_ok=True)
+    print("Iniciando download...")
+    print("Origem:", url)
+
+    resposta = requests.get(url)
+
+    print("Status:", resposta.status_code)
+
+    if resposta.status_code == 200:
+        destino.write_bytes(resposta.content)
+        print("Arquivo salvo em:")
+        print(destino)
+
+    else:
+        print("Erro no download")
 
 
 if __name__ == "__main__":
-    criar_pasta_raw()
 
-    print("Pasta de dados brutos:")
-    print(RAW_DATA)
+    arquivo = RAW_DATA_DIR / "teste_tse.txt"
 
-    print("Extract configurado com sucesso!")
+    download_arquivo(
+        URL_CANDIDATOS,
+        arquivo
+    )
