@@ -15,3 +15,17 @@ data/processed/*
 
 # Power BI
 *.pbix
+
+# Ambiente Python
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter_runtime/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Dados temporários
+*.tmp
