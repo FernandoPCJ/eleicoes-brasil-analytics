@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 17188,
+  "port": 8888,
+  "root_dir": "C:\\Users\\Fernando\\eleicoes-brasil-analytics",
+  "secure": false,
+  "sock": "",
+  "token": "5f78a3e01253bf15e2d0e4a5ffe577308ff0f7c27ff8fe2b",
+  "url": "http://localhost:8888/",
+  "version": "2.20.0"
+}

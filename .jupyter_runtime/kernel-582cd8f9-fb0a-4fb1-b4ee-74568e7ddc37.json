@@ -1,0 +1,13 @@
+{
+  "shell_port": 63686,
+  "iopub_port": 63687,
+  "stdin_port": 63688,
+  "control_port": 63690,
+  "hb_port": 63689,
+  "ip": "127.0.0.1",
+  "key": "9db1a505-72727e302f8d2b5685ba5d12",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "python3",
+  "jupyter_session": "C:\\Users\\Fernando\\eleicoes-brasil-analytics\\Untitled.ipynb"
+}
