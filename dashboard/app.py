@@ -32,7 +32,7 @@ df = carregar_dados()
 # TÍTULO
 # ============================================================
 
-st.title("🇧🇷 BR Eleições Brasil Analytics")
+st.title("🇧🇷 Eleições Brasil Analytics")
 
 st.subheader(
     "Análise das candidaturas das Eleições Gerais de 2026"
@@ -471,6 +471,6 @@ with col2:
 st.divider()
 
 st.caption(
-    "BR Eleições Brasil Analytics • "
+    "🇧🇷 Eleições Brasil Analytics • "
     "Análise das candidaturas das Eleições Gerais de 2026"
 )
