@@ -95,7 +95,7 @@ oficial de colunas do TSE, sem depender de rede.
 
 O dashboard está publicado no Streamlit Community Cloud (gratuito):
 
-**[LINK_DO_DEPLOY_AQUI]**
+**https://eleicoes-brasil-analytics-yxweappghhbgfktsikcvqga.streamlit.app**
 
 Para publicar sua própria cópia: crie uma conta em
 [share.streamlit.io](https://share.streamlit.io) com seu GitHub, aponte
