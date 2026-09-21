@@ -11,6 +11,11 @@ venv/
 
 # Dados grandes
 data/raw/*
+!data/raw/.gitkeep
+
+# Warehouse local (star schema) — gerado pelo pipeline, não versionado
+data/warehouse/*.db
+!data/warehouse/.gitkeep
 
 # Power BI
 *.pbix

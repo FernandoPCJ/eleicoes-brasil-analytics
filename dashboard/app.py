@@ -1,8 +1,17 @@
+import sys
+from pathlib import Path
+
 import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
 from scipy.stats import chi2_contingency
+
+# Permite `python -m streamlit run dashboard/app.py` a partir da raiz do projeto
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from src.extract.config_tse import WAREHOUSE_DIR
+from src.load.query_gold import carregar_candidatos_df
 
 # ============================================================
 # CONFIGURAÇÃO
@@ -18,11 +27,13 @@ st.set_page_config(
 # ============================================================
 # CARREGAMENTO DOS DADOS
 # ============================================================
+# Lê da camada gold (star schema em SQLite) em vez do parquet único.
+# Ver src/load/query_gold.py e src/load/build_star_schema.py.
 
 @st.cache_data
 def carregar_dados():
-    arquivo = "data/processed/candidatos_2026.parquet"
-    df = pd.read_parquet(arquivo)
+    caminho_db = WAREHOUSE_DIR / "eleicoes.db"
+    df = carregar_candidatos_df(caminho_db)
     return df
 
 
