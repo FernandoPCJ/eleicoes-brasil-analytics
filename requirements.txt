@@ -1,13 +1,20 @@
 pandas
 numpy
-sqlalchemy
-psycopg2-binary
+requests
+streamlit
+plotly
+scipy
+
+# Notebooks e análises exploratórias
 jupyter
 matplotlib
 seaborn
 openpyxl
-streamlit
-pandas
-plotly
 pyarrow
-scipy
+
+# Testes (a camada gold/star schema usa só stdlib: sqlite3, csv, zipfile)
+pytest
+
+# Reservado para a Fase 2 do roadmap (warehouse em Postgres e dbt) — ver README
+# sqlalchemy
+# psycopg2-binary
