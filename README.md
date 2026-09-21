@@ -58,6 +58,26 @@ python -m src.quality.checks
 streamlit run dashboard/app.py
 ```
 
+### Se o download automático falhar (403)
+
+O CDN do TSE fica atrás de um WAF (proteção anti-bot) que, em alguns
+ambientes de rede, bloqueia clientes HTTP não-navegador mesmo com um
+User-Agent de navegador — normalmente por *fingerprint* de TLS, não só
+pelos headers. Se `download_tse.py` continuar retornando 403:
+
+1. Baixe manualmente pelo navegador:
+   `https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip`
+2. Extraia o zip e copie `consulta_cand_2026_BRASIL.csv` para `data/raw/`
+3. Rode o pipeline a partir da etapa 2 (`clean_candidatos`) — o script de
+   extração automática só é pulado, o resto do pipeline funciona igual.
+
+O dashboard (`dashboard/app.py`) também reconstrói o star schema
+automaticamente a partir do CSV processado versionado em
+`data/processed/`, caso o banco `data/warehouse/eleicoes.db` não exista
+ainda — por isso funciona direto em um deploy limpo (ex.: Streamlit
+Community Cloud), sem precisar rodar a extração contra o TSE no ambiente
+de deploy.
+
 ## Testes
 
 ```bash
@@ -70,6 +90,19 @@ Os testes cobrem limpeza de dados, construção do star schema, checks de
 qualidade (incluindo detecção proposital de órfãos) e a consulta que
 alimenta o dashboard — tudo com uma amostra sintética que segue o layout
 oficial de colunas do TSE, sem depender de rede.
+
+## Deploy
+
+O dashboard está publicado no Streamlit Community Cloud (gratuito):
+
+**[LINK_DO_DEPLOY_AQUI]**
+
+Para publicar sua própria cópia: crie uma conta em
+[share.streamlit.io](https://share.streamlit.io) com seu GitHub, aponte
+para este repositório (branch `main`), arquivo principal
+`dashboard/app.py`. Como o dashboard reconstrói o star schema a partir do
+CSV versionado em `data/processed/` (ver seção acima), nenhuma
+configuração extra é necessária — o deploy funciona direto.
 
 ## Evoluindo para Postgres
 

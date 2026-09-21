@@ -33,3 +33,6 @@ __pycache__/
 
 # Dados temporários
 *.tmp
+# Streamlit agent skills (symlinks específicos do ambiente local)
+.agents/skills/developing-with-streamlit
+.claude/skills/developing-with-streamlit
