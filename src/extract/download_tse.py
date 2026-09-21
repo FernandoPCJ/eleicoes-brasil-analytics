@@ -26,6 +26,19 @@ MAX_TENTATIVAS = 3
 TIMEOUT_SEGUNDOS = 60
 BACKOFF_BASE_SEGUNDOS = 2
 
+# O CDN do TSE (por trás de um WAF) devolve 403 para clientes sem cara de
+# navegador (ex.: o User-Agent padrão do requests, "python-requests/x.y").
+# Um User-Agent e Referer de navegador comum resolvem na maioria dos casos.
+HEADERS_NAVEGADOR = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": "*/*",
+    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Referer": "https://dadosabertos.tse.jus.br/",
+}
+
 
 class DownloadError(Exception):
     """Erro ao baixar arquivo do TSE após esgotar as tentativas."""
@@ -56,7 +69,9 @@ def download_arquivo(url: str, destino: Path, forcar: bool = False) -> Path:
             logger.info(
                 "Baixando (tentativa %d/%d): %s", tentativa, MAX_TENTATIVAS, url
             )
-            resposta = requests.get(url, timeout=TIMEOUT_SEGUNDOS, stream=True)
+            resposta = requests.get(
+                url, timeout=TIMEOUT_SEGUNDOS, stream=True, headers=HEADERS_NAVEGADOR
+            )
             resposta.raise_for_status()
 
             destino.parent.mkdir(parents=True, exist_ok=True)
