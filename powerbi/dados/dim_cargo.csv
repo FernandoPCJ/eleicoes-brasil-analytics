@@ -1,0 +1,11 @@
+sk_cargo,cargo,ordem_cargo,poder
+1,PRESIDENTE,1,Executivo
+2,VICE-PRESIDENTE,2,Executivo
+3,GOVERNADOR,3,Executivo
+4,VICE-GOVERNADOR,4,Executivo
+5,SENADOR,5,Legislativo
+6,1º SUPLENTE,6,Legislativo
+7,2º SUPLENTE,7,Legislativo
+8,DEPUTADO FEDERAL,8,Legislativo
+9,DEPUTADO ESTADUAL,9,Legislativo
+10,DEPUTADO DISTRITAL,10,Legislativo

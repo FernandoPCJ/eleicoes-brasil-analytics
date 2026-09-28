@@ -1,0 +1,49 @@
+table dim_cargo
+	lineageTag: 94eb939c-9fef-4846-9a7c-cf425a8ebba7
+
+	column sk_cargo
+		dataType: int64
+		isHidden
+		lineageTag: a1706c8f-8cab-4ae0-923b-6d5c499eb420
+		summarizeBy: none
+		sourceColumn: sk_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cargo
+		dataType: string
+		lineageTag: e770a593-68ef-457f-9ad4-35eee79c0d86
+		summarizeBy: none
+		sourceColumn: cargo
+		sortByColumn: ordem_cargo
+
+		annotation SummarizationSetBy = User
+
+	column ordem_cargo
+		dataType: int64
+		isHidden
+		lineageTag: 7424bbf4-37bd-4e2b-ab31-ac537082271a
+		summarizeBy: none
+		sourceColumn: ordem_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column poder
+		dataType: string
+		lineageTag: 880dc936-0c3d-473c-b43c-9c83f2e3c143
+		summarizeBy: none
+		sourceColumn: poder
+
+		annotation SummarizationSetBy = User
+
+	partition dim_cargo = m
+		mode: import
+		source =
+				let
+				    Fonte = CarregarCSV("dim_cargo.csv"),
+				    Tipos = Table.TransformColumnTypes(Fonte, {{"sk_cargo", Int64.Type}, {"cargo", type text}, {"ordem_cargo", Int64.Type}, {"poder", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

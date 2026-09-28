@@ -1,0 +1,87 @@
+{
+  "name": "Tema Eleicoes Brasil",
+  "dataColors": [
+    "#1F6F8B",
+    "#E4572E",
+    "#13A89E",
+    "#F2A541",
+    "#6C4F9C",
+    "#0B2545",
+    "#8DA9C4",
+    "#C44D58",
+    "#5C946E",
+    "#A26769"
+  ],
+  "foreground": "#1B1F24",
+  "foregroundNeutralSecondary": "#5B6573",
+  "background": "#FFFFFF",
+  "backgroundLight": "#F4F6F9",
+  "tableAccent": "#1F6F8B",
+  "good": "#13A89E",
+  "bad": "#E4572E",
+  "textClasses": {
+    "callout": {
+      "fontSize": 28,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#0B2545"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#0B2545"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#0B2545"
+    },
+    "label": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI",
+      "color": "#1B1F24"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E1E6EC"
+              }
+            },
+            "radius": 8
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false
+          }
+        ],
+        "padding": [
+          {
+            "top": 8,
+            "bottom": 8,
+            "left": 10,
+            "right": 10
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#0B2545"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

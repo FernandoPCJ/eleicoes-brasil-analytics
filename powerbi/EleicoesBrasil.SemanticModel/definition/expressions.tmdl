@@ -1,0 +1,21 @@
+expression PastaDados = "C:\Users\Fernando\eleicoes-brasil-analytics\powerbi\dados\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 84a25b57-cbd1-4fc2-b41d-e3c10e18676c
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+/// Lê um CSV da pasta local ou de uma URL (ex.: raw.githubusercontent.com), conforme o parâmetro PastaDados.
+expression CarregarCSV =
+		(arquivo as text) as table =>
+		let
+		    Caminho = PastaDados & arquivo,
+		    Binario = if Text.StartsWith(PastaDados, "http") then Web.Contents(Caminho) else File.Contents(Caminho),
+		    Csv = Csv.Document(Binario, [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+		    ComCabecalho = Table.PromoteHeaders(Csv, [PromoteAllScalars = true])
+		in
+		    ComCabecalho
+	lineageTag: 68291604-9ecb-4fd4-bba7-0da33a16751a
+
+	annotation PBI_ResultType = Function
+

@@ -1,0 +1,135 @@
+table dim_candidato
+	lineageTag: 7adeda52-838b-42b0-a40c-5dc59ca13ff6
+
+	column sk_candidato
+		dataType: int64
+		isHidden
+		lineageTag: 9ae2476c-c974-4ff0-a07f-7d6570d2d99b
+		summarizeBy: none
+		sourceColumn: sk_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column sq_candidato
+		dataType: string
+		lineageTag: c917a7a9-8b63-4b8d-b606-437b24fa335d
+		summarizeBy: none
+		sourceColumn: sq_candidato
+
+		annotation SummarizationSetBy = User
+
+	column nr_candidato
+		dataType: string
+		lineageTag: 8fdb9d7b-8e0c-485d-b336-e8ef6f728c34
+		summarizeBy: none
+		sourceColumn: nr_candidato
+
+		annotation SummarizationSetBy = User
+
+	column nm_candidato
+		dataType: string
+		lineageTag: 55d3ed53-011a-496c-bb84-e0cadb1dfe21
+		summarizeBy: none
+		sourceColumn: nm_candidato
+
+		annotation SummarizationSetBy = User
+
+	column nm_urna_candidato
+		dataType: string
+		lineageTag: 0b021a80-6cc6-4d92-953d-3ef3d4fbac5b
+		summarizeBy: none
+		sourceColumn: nm_urna_candidato
+
+		annotation SummarizationSetBy = User
+
+	column genero
+		dataType: string
+		lineageTag: d74f3145-ce29-4f18-a827-26df85fbfe15
+		summarizeBy: none
+		sourceColumn: genero
+
+		annotation SummarizationSetBy = User
+
+	column cor_raca
+		dataType: string
+		lineageTag: 844e6665-d9f0-4981-89f3-80243267fe38
+		summarizeBy: none
+		sourceColumn: cor_raca
+
+		annotation SummarizationSetBy = User
+
+	column escolaridade
+		dataType: string
+		lineageTag: 95c2b90b-f667-462a-8d17-bd80fe66c4fa
+		summarizeBy: none
+		sourceColumn: escolaridade
+		sortByColumn: ordem_escolaridade
+
+		annotation SummarizationSetBy = User
+
+	column estado_civil
+		dataType: string
+		lineageTag: 3c882e2b-8e82-4d25-a4d7-48c76442b271
+		summarizeBy: none
+		sourceColumn: estado_civil
+
+		annotation SummarizationSetBy = User
+
+	column dt_nascimento
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 6d9e611d-f5f9-4f2b-a170-dd2c25a86895
+		summarizeBy: none
+		sourceColumn: dt_nascimento
+
+		annotation SummarizationSetBy = User
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column idade
+		dataType: int64
+		formatString: 0
+		lineageTag: 2e84d1d4-a7ac-428a-821b-a8675a6abf60
+		summarizeBy: average
+		sourceColumn: idade
+
+		annotation SummarizationSetBy = User
+
+	column faixa_etaria
+		dataType: string
+		lineageTag: fb76d2ec-2421-476a-84fb-0792f78d9bfb
+		summarizeBy: none
+		sourceColumn: faixa_etaria
+		sortByColumn: ordem_faixa_etaria
+
+		annotation SummarizationSetBy = User
+
+	column ordem_escolaridade
+		dataType: int64
+		isHidden
+		lineageTag: e571e74c-9a66-42f6-b811-9b40fb89db1e
+		summarizeBy: none
+		sourceColumn: ordem_escolaridade
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordem_faixa_etaria
+		dataType: int64
+		isHidden
+		lineageTag: 38d87222-6ebb-48a4-810d-56ef6c9f40da
+		summarizeBy: none
+		sourceColumn: ordem_faixa_etaria
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_candidato = m
+		mode: import
+		source =
+				let
+				    Fonte = CarregarCSV("dim_candidato.csv"),
+				    Tipos = Table.TransformColumnTypes(Fonte, {{"sk_candidato", Int64.Type}, {"sq_candidato", type text}, {"nr_candidato", type text}, {"nm_candidato", type text}, {"nm_urna_candidato", type text}, {"genero", type text}, {"cor_raca", type text}, {"escolaridade", type text}, {"estado_civil", type text}, {"dt_nascimento", type date}, {"idade", Int64.Type}, {"faixa_etaria", type text}, {"ordem_escolaridade", Int64.Type}, {"ordem_faixa_etaria", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

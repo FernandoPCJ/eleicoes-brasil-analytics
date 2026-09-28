@@ -1,0 +1,48 @@
+table dim_estado
+	lineageTag: b78435bf-b94d-433b-8872-6e9db85e15d9
+
+	column sk_estado
+		dataType: int64
+		isHidden
+		lineageTag: d1d6c8f2-3a58-4a24-827d-73ec27dda7fd
+		summarizeBy: none
+		sourceColumn: sk_estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: ed4a4dfb-869a-43d3-8096-880832229e80
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = User
+
+	column nome_estado
+		dataType: string
+		lineageTag: deee642f-5976-43cf-8273-44cae41d8110
+		summarizeBy: none
+		sourceColumn: nome_estado
+
+		annotation SummarizationSetBy = User
+
+	column regiao
+		dataType: string
+		lineageTag: a2c9706b-97e2-42eb-a01f-b8c7dadd37a3
+		summarizeBy: none
+		sourceColumn: regiao
+
+		annotation SummarizationSetBy = User
+
+	partition dim_estado = m
+		mode: import
+		source =
+				let
+				    Fonte = CarregarCSV("dim_estado.csv"),
+				    Tipos = Table.TransformColumnTypes(Fonte, {{"sk_estado", Int64.Type}, {"uf", type text}, {"nome_estado", type text}, {"regiao", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

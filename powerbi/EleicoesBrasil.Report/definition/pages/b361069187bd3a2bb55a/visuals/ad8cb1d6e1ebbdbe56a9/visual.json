@@ -1,0 +1,127 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "ad8cb1d6e1ebbdbe56a9",
+  "position": {
+    "x": 40,
+    "y": 110,
+    "z": 7000,
+    "height": 64,
+    "width": 1200,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Pessoas pretas e pardas são 55,5% da população (Censo 2022), mas ",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#DCE6F0"
+                    }
+                  },
+                  {
+                    "value": "48,4% das candidaturas",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#F2A541",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": ". A distância cresce com o cargo: 36,4% no Senado e ",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#DCE6F0"
+                    }
+                  },
+                  {
+                    "value": "21,4% entre presidenciáveis",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#F2A541",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#DCE6F0"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E1E6EC'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

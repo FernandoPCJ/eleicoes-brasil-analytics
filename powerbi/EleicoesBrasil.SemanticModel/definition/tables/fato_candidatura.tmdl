@@ -1,0 +1,194 @@
+table fato_candidatura
+	lineageTag: 14bff46c-13ca-49aa-9824-f885ae63510f
+
+	measure Candidaturas = COUNTROWS(fato_candidatura)
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 1039d130-16fd-47e7-9525-db4e60ecf31f
+
+	measure Partidos = DISTINCTCOUNT(fato_candidatura[sk_partido])
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: c576ed44-61a7-4230-a288-f896da632107
+
+	measure UFs = CALCULATE(DISTINCTCOUNT(fato_candidatura[sk_estado]), dim_estado[uf] <> "BR")
+		formatString: #,0
+		displayFolder: Volume
+		lineageTag: 9454204a-c6ed-4ac5-b338-748ce5fe5518
+
+	measure '% do Total' = DIVIDE([Candidaturas], CALCULATE([Candidaturas], ALLSELECTED()))
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Volume
+		lineageTag: ac4a58b0-2af9-411d-90ee-a21070c9f950
+
+	measure 'Candidaturas Femininas' = CALCULATE([Candidaturas], dim_candidato[genero] = "FEMININO")
+		formatString: #,0
+		displayFolder: Gênero
+		lineageTag: b010b12c-ad6c-4944-820c-1213bf965078
+
+	measure 'Candidaturas Masculinas' = CALCULATE([Candidaturas], dim_candidato[genero] = "MASCULINO")
+		formatString: #,0
+		displayFolder: Gênero
+		lineageTag: 58337ed5-2c52-4d8d-aed3-ceeda1fd26ff
+
+	measure '% Mulheres' = DIVIDE([Candidaturas Femininas], [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Gênero
+		lineageTag: feb4fbda-52e5-488c-b847-19aac4c38ad3
+
+	measure '% Homens' = DIVIDE([Candidaturas Masculinas], [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Gênero
+		lineageTag: d145b1c6-2a8d-4936-bd5c-15b30dacebb7
+
+	measure 'Gap de Gênero (p.p.)' = ([% Homens] - [% Mulheres]) * 100
+		formatString: 0.0
+		displayFolder: Gênero
+		lineageTag: 7b5d35a1-7161-43bc-959a-ca2e7f359970
+
+	measure 'Cota Mínima (30%)' = 0.3
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Gênero
+		lineageTag: 00b9ce39-0cf2-414f-a0a0-b134839ae7f8
+
+	measure '% Mulheres Negras' = DIVIDE(CALCULATE([Candidaturas], dim_candidato[genero] = "FEMININO", dim_candidato[cor_raca] IN {"PRETA", "PARDA"}), [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Raça/Cor
+		lineageTag: 696c96ec-c9a4-4a5a-90ed-5b29462a2bf1
+
+	measure 'Status Cota 30%' = IF(ISBLANK([Candidaturas]), BLANK(), IF([% Mulheres] >= 0.3, "Acima da cota mínima de 30%", "Abaixo da cota mínima de 30%"))
+		displayFolder: Gênero
+		lineageTag: 99422e74-7ad4-436b-9c0c-1c3d71c212bb
+
+	measure 'Candidaturas Negras' = CALCULATE([Candidaturas], dim_candidato[cor_raca] IN {"PRETA", "PARDA"})
+		formatString: #,0
+		displayFolder: Raça/Cor
+		lineageTag: a1b80705-df5c-4d3c-9d47-7b978d26065d
+
+	measure '% Pessoas Negras' = DIVIDE([Candidaturas Negras], [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Raça/Cor
+		lineageTag: a91cf0ba-6d59-4e6f-af62-6bf7dce9a4f2
+
+	measure '% Pessoas Brancas' = DIVIDE(CALCULATE([Candidaturas], dim_candidato[cor_raca] = "BRANCA"), [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Raça/Cor
+		lineageTag: dcec13f0-1834-4de9-b521-1f9dcb3b2c83
+
+	measure '% Pessoas Negras na População (Censo 2022)' = 0.555
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Raça/Cor
+		lineageTag: 7dd0735d-fd94-461c-956c-ecfe8c46b992
+
+	measure 'Sub-representação Negra (p.p.)' = ([% Pessoas Negras na População (Censo 2022)] - [% Pessoas Negras]) * 100
+		formatString: 0.0
+		displayFolder: Raça/Cor
+		lineageTag: 7e3b01ef-4e61-4609-a680-949c55af6849
+
+	measure '% Superior Completo' = DIVIDE(CALCULATE([Candidaturas], dim_candidato[escolaridade] = "SUPERIOR COMPLETO"), [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Perfil
+		lineageTag: 1f9fd067-0fd2-4bbf-9742-c461d355c8b8
+
+	measure 'Idade Média' = AVERAGEX(fato_candidatura, RELATED(dim_candidato[idade]))
+		formatString: 0.0
+		displayFolder: Perfil
+		lineageTag: 8f972f69-c996-490d-be0f-ff39a065110c
+
+	measure 'Idade Mediana' = MEDIANX(fato_candidatura, RELATED(dim_candidato[idade]))
+		formatString: 0
+		displayFolder: Perfil
+		lineageTag: 5465c324-3668-4ced-b066-eb24e8de206a
+
+	measure '% Jovens (até 29)' = DIVIDE(CALCULATE([Candidaturas], dim_candidato[faixa_etaria] = "18-29"), [Candidaturas])
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Perfil
+		lineageTag: 10b50f1b-cd3b-4c1d-9f4b-84cb83ef55dc
+
+	measure 'Resumo Seleção' = "Candidaturas na seleção: " & FORMAT([Candidaturas], "#,0") & "  |  Mulheres: " & FORMAT([% Mulheres], "0.0%") & "  |  Pessoas negras: " & FORMAT([% Pessoas Negras], "0.0%") & "  |  Idade média: " & FORMAT([Idade Média], "0.0")
+		displayFolder: Textos
+		lineageTag: a8e8258f-f8f7-437f-b3c2-3662bead9ca2
+
+	column sk_candidatura
+		dataType: int64
+		isHidden
+		lineageTag: 96b0edd9-f755-4980-8ec2-6f6d0c483ce0
+		summarizeBy: none
+		sourceColumn: sk_candidatura
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_candidato
+		dataType: int64
+		isHidden
+		lineageTag: 74b5414d-3db4-4758-9970-ecac7ae3c653
+		summarizeBy: none
+		sourceColumn: sk_candidato
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_cargo
+		dataType: int64
+		isHidden
+		lineageTag: 2eb92799-2581-4ff1-9f6a-b964b8788f79
+		summarizeBy: none
+		sourceColumn: sk_cargo
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_estado
+		dataType: int64
+		isHidden
+		lineageTag: 3a421b2e-3de8-4eac-b79d-fef1a5a72de1
+		summarizeBy: none
+		sourceColumn: sk_estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column sk_partido
+		dataType: int64
+		isHidden
+		lineageTag: 8e90ad2d-c18e-41af-9470-be43fc7498fe
+		summarizeBy: none
+		sourceColumn: sk_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano_eleicao
+		dataType: int64
+		formatString: 0
+		lineageTag: 5752bceb-13d2-4bf3-b96d-f05151bff764
+		summarizeBy: none
+		sourceColumn: ano_eleicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column turno
+		dataType: int64
+		formatString: 0
+		lineageTag: bd9558ff-36ac-4519-bb74-69895e39f160
+		summarizeBy: none
+		sourceColumn: turno
+
+		annotation SummarizationSetBy = Automatic
+
+	column situacao_candidatura
+		dataType: string
+		isHidden
+		lineageTag: 3cb1905f-1921-4170-a9f0-38d9c45efd8e
+		summarizeBy: none
+		sourceColumn: situacao_candidatura
+
+		annotation SummarizationSetBy = User
+
+	partition fato_candidatura = m
+		mode: import
+		source =
+				let
+				    Fonte = CarregarCSV("fato_candidatura.csv"),
+				    Tipos = Table.TransformColumnTypes(Fonte, {{"sk_candidatura", Int64.Type}, {"sk_candidato", Int64.Type}, {"sk_cargo", Int64.Type}, {"sk_estado", Int64.Type}, {"sk_partido", Int64.Type}, {"ano_eleicao", Int64.Type}, {"turno", Int64.Type}, {"situacao_candidatura", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

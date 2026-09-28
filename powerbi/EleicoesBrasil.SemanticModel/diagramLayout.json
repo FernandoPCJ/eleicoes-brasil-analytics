@@ -1,0 +1,87 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 136.78345722979094,
+            "y": 526.39965304904786
+          },
+          "nodeIndex": "dim_candidato",
+          "nodeLineageTag": "7adeda52-838b-42b0-a40c-5dc59ca13ff6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.41301535328341,
+            "y": 385.91012862016493
+          },
+          "nodeIndex": "dim_cargo",
+          "nodeLineageTag": "94eb939c-9fef-4846-9a7c-cf425a8ebba7",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 497.95685850794825,
+            "y": -50
+          },
+          "nodeIndex": "dim_estado",
+          "nodeLineageTag": "b78435bf-b94d-433b-8872-6e9db85e15d9",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 101.30539268924599
+          },
+          "nodeIndex": "dim_partido",
+          "nodeLineageTag": "0ca7c0b6-c47d-41d1-8360-fee88dfbd359",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.21403159354486,
+            "y": 176.19876871596847
+          },
+          "nodeIndex": "fato_candidatura",
+          "nodeLineageTag": "14bff46c-13ca-49aa-9824-f885ae63510f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

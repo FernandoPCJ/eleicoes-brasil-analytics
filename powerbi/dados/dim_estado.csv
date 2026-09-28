@@ -1,0 +1,29 @@
+sk_estado,uf,nome_estado,regiao
+1,AC,Acre,Norte
+2,AL,Alagoas,Nordeste
+3,AM,Amazonas,Norte
+4,AP,Amapá,Norte
+5,BA,Bahia,Nordeste
+6,BR,Brasil (candidaturas nacionais),Nacional
+7,CE,Ceará,Nordeste
+8,DF,Distrito Federal,Centro-Oeste
+9,ES,Espírito Santo,Sudeste
+10,GO,Goiás,Centro-Oeste
+11,MA,Maranhão,Nordeste
+12,MG,Minas Gerais,Sudeste
+13,MS,Mato Grosso do Sul,Centro-Oeste
+14,MT,Mato Grosso,Centro-Oeste
+15,PA,Pará,Norte
+16,PB,Paraíba,Nordeste
+17,PE,Pernambuco,Nordeste
+18,PI,Piauí,Nordeste
+19,PR,Paraná,Sul
+20,RJ,Rio de Janeiro,Sudeste
+21,RN,Rio Grande do Norte,Nordeste
+22,RO,Rondônia,Norte
+23,RR,Roraima,Norte
+24,RS,Rio Grande do Sul,Sul
+25,SC,Santa Catarina,Sul
+26,SE,Sergipe,Nordeste
+27,SP,São Paulo,Sudeste
+28,TO,Tocantins,Norte

@@ -1,0 +1,16 @@
+relationship dfc9f92a-4dac-4ce0-86f6-d5a2639d0130
+	fromColumn: fato_candidatura.sk_candidato
+	toColumn: dim_candidato.sk_candidato
+
+relationship e1827560-fba7-4f97-9cab-e47e56a5dc3c
+	fromColumn: fato_candidatura.sk_cargo
+	toColumn: dim_cargo.sk_cargo
+
+relationship bdb38ebc-a92c-47d1-b37e-7177a4659e80
+	fromColumn: fato_candidatura.sk_estado
+	toColumn: dim_estado.sk_estado
+
+relationship c4e881b1-9b85-448b-8dcb-d024e4aa3d4c
+	fromColumn: fato_candidatura.sk_partido
+	toColumn: dim_partido.sk_partido
+

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "06ca4cb781d0ce50418e",
+  "position": {
+    "x": 40,
+    "y": 110,
+    "z": 7000,
+    "height": 64,
+    "width": 1200,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "58,7% têm ensino superior completo",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#F2A541",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": ". A idade média é de 49,2 anos e só 4,6% têm até 29 anos. A idade cresce com o cargo: de ",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#DCE6F0"
+                    }
+                  },
+                  {
+                    "value": "48 anos (deputado distrital) a 56,7 (presidente)",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#F2A541",
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "color": "#DCE6F0"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E1E6EC'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

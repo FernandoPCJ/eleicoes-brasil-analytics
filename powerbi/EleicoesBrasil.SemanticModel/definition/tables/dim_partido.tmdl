@@ -1,0 +1,39 @@
+table dim_partido
+	lineageTag: 0ca7c0b6-c47d-41d1-8360-fee88dfbd359
+
+	column sk_partido
+		dataType: int64
+		isHidden
+		lineageTag: 1809e51b-3f73-40af-9a25-ffafd78b0004
+		summarizeBy: none
+		sourceColumn: sk_partido
+
+		annotation SummarizationSetBy = Automatic
+
+	column sigla_partido
+		dataType: string
+		lineageTag: 7522cb7f-2078-4a75-9153-3f14457486b2
+		summarizeBy: none
+		sourceColumn: sigla_partido
+
+		annotation SummarizationSetBy = User
+
+	column nome_partido
+		dataType: string
+		lineageTag: fc93e7af-47dd-4424-b624-6f854f23ed0b
+		summarizeBy: none
+		sourceColumn: nome_partido
+
+		annotation SummarizationSetBy = User
+
+	partition dim_partido = m
+		mode: import
+		source =
+				let
+				    Fonte = CarregarCSV("dim_partido.csv"),
+				    Tipos = Table.TransformColumnTypes(Fonte, {{"sk_partido", Int64.Type}, {"sigla_partido", type text}, {"nome_partido", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

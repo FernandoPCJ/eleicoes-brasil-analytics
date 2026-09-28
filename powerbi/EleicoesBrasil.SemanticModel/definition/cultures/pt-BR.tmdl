@@ -1,0 +1,344 @@
+cultureInfo pt-BR
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "fato_candidatura.candidaturas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Candidaturas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "candidaturas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "candidaturas registradas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.partidos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Partidos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "partidos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "partidos com candidaturas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.mulheres": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "% Mulheres"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "são mulheres": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "mulheres": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.pessoas_negras": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "% Pessoas Negras"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "são pessoas negras": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "pessoas negras": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.ufs": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "UFs"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "unidades da federação": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.mulheres_negras": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "% Mulheres Negras"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "são mulheres negras (7% entre candidaturas a governador)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.status_cota_30": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Status Cota 30%"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "no total geral": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.gap_de_gênero_p_p_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Gap de Gênero (p.p.)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "gap homens − mulheres (p.p.)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.subrepresentação_negra_p_p_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Sub-representação Negra (p.p.)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p.p. abaixo da população": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.superior_completo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "% Superior Completo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "com superior completo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "superior completo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.idade_mediana": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Idade Mediana"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "idade mediana (anos)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.jovens_até_29": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "% Jovens (até 29)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "têm até 29 anos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fato_candidatura.idade_média": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fato_candidatura",
+			          "ConceptualProperty": "Idade Média"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "idade média (anos)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "idade média": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+
